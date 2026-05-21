@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sharp Cut | Premium Barbershop</title>
+    <style>
+        /* Modern CSS Variables & Styling */
+        :root {
+            --primary-color: #1a1a1a;
+            --accent-color: #d4af37; /* Premium Gold Accent */
+            --bg-color: #faf8f5; /* Warm cream */
+            --card-bg: #ffffff;
+            --text-main: #2b2b2b;
+            --text-muted: #666666;
+            --border-color: #e5e0da;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        .menu{
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 2px;
+            display: flex;
+            width: 100%;
+        }
+
+        .brand-name {
+            display: table-cell;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+        
+        .brand-name span {
+            color: var(--accent-color);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), url('/IMG_1065.jpeg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Main Container Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Pricing & Services Layout */
+        .services-layout {
+            display: table;
+            width: 100%;
+            margin-bottom: 50px;
+        }
+
+        .services-column, .booking-column {
+            display: table-cell;
+            vertical-align: top;
+            width: 50%;
+        }
+
+        .services-column {
+            padding-right: 30px;
+        }
+
+        .booking-column {
+            padding-left: 30px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            color: var(--primary-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* BUG FIX: Added missing wrapper rule declaration for .service-item */
+        .service-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative;
+        }
+
+        .service-info {
+            display: inline-block;
+            width: 75%;
+            vertical-align: top;
+        }
+
+        .service-price {
+            display: inline-block;
+            width: 23%;
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--accent-color);
+            vertical-align: top;
+        }
+
+        .service-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            color: var(--primary-color);
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Dynamic Payment Card Interface */
+        .booking-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 15px;
+            background-color: #fff;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .book-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .book-btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #888888;
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 3px solid var(--accent-color);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .services-layout, .services-column, .booking-column, .barb-image{
+                display: block;
+                width: 100%;
+                padding: 0;
+            }
+            .services-column {
+                padding-right: 0;
+            }
+            .booking-column {
+                margin-top: 40px;
+                padding-left: 0;
+            }
+            .service-info, .service-price {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+            .service-price {
+                margin-top: 10px;
+            }
+        }
+        .logo{
+            border-radius: 24%;
+        }
+        .barb-image{
+            border-radius: 24px;
+            max-width: 100%;
+            height: auto;
+        }
+        .hero-image{
+            padding: 100px 20px;
+            width: 500px;
+            text-align: cente
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar Navigation -->
+    <nav>
+        <img width="48" class="logo" src="/IMG_1076.jpeg" alt="Logo" />
+        <div class="nav-container">
+            <div class="brand-name">The Sharp <span>Cut</span></div>
+        </div>
+        <img width="45" class="menu" src="/IMG_1087.jpeg" alt="Menu" />
+    </nav>
+
+    <!-- Visual Header Section -->
+    <div class="hero">
+        <h1>Look Sharp, Feel Confident</h1>
+        <p>Premium backend-free booking experience. Pay securely via Paystack and lock in your reservation calendar slot instantly.</p>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        <div class="services-layout">
+            
+            <!-- Left Side: Pricing Menu -->
+            <div class="services-column">
+                <div class="section-title">Our Services</div>
+                
+                <div class="service-item">
+                    <div class="service-info">
+                        <img width="400" class="barb-image" src="/IMG_1067.jpeg" alt="Classic Haircut" />
+                        <div class="service-name">Classic Haircut</div>
+                        <p class="service-desc">Precision dynamic cut, hot towel wipe, styling wax finish.</p>
+                    </div>
+                    <div class="service-price">₦5,000</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <img width="400" class="barb-image" src="/IMG_1071.jpeg" alt="Beard Shave" />
+                        <div class="service-name">Beard Trim & Clean Shave</div>
+                        <p class="service-desc">Razor detailing, beard conditioning oils, conditioning facial spray.</p>
+                    </div>
+                    <div class="service-price">₦3,500</div>
+                </div>
+
+                <div class="service-item">
+                    <div class="service-info">
+                        <img width="400" class="barb-image" src="/IMG_1075.jpeg" alt="VIP Combo" />
+                        <div class="service-name">The Premium VIP Combo</div>
+                        <p class="service-desc">Haircut + Beard Trim + Express deep pore charcoal facial mask.</p>
+                    </div>
+                    <div class="service-price">₦8,000</div>
+                </div>
+            </div>
+
+            <!-- Right Side: Paystack Interface -->
+            <div class="booking-column">
+                <div class="section-title">Secure Checkout</div>
+                
+                <div class="booking-card">
+                    <form id="barberPaymentForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" required placeholder="John Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emailAddress">Email Address</label>
+                            <input type="email" id="emailAddress" required placeholder="john@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="serviceSelect">Select Service</label>
+                            <select id="serviceSelect" required>
+                                <option value="5000" data-name="Classic Haircut">Classic Haircut — ₦5,000</option>
+                                <option value="3500" data-name="Beard Trim & Clean Shave">Beard Trim & Clean Shave — ₦3,500</option>
+                                <option value="8000" data-name="The Premium VIP Combo">The Premium VIP Combo — ₦8,000</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="book-btn" id="payButton">Proceed to Payment & Booking</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Sharp Cut Barbershop. Built with Paystack & Cal.com</p>
+    </footer>
+
+    <!-- STEP 1: IMPORT SDKs -->
+    <script src="https://js.paystack.co/v2/inline.js"></script>
+    
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let am = arguments; if (!C.Cal.q) { C.Cal.q = []; } p(C.Cal, am); }; let js = d.createElement(A), fs = d.getElementsByTagName(A)[0]; js.async = 1; js.src = L; fs.parentNode.insertBefore(js, fs); })(window, "script", "https://app.cal.com/embed/embed.js");
+      Cal("init", { origin: "https://cal.com" });
+    </script>
+
+    <!-- STEP 2: CONFIGURATION AND INITIALIZATION -->
+    <script>
+        const CONFIG = {
+            // Paste your actual Paystack PUBLIC Key here ('pk_test_...' or 'pk_live_...')
+            PAYSTACK_PUBLIC_KEY: 'YOUR_PAYSTACK_PUBLIC_KEY_HERE', 
+            
+            // Paste your specific Cal.com booking link path here
+            CAL_BOOKING_LINK: 'YOUR_CAL_COM_BOOKING_LINK_HERE',
+            
+            CURRENCY_SYMBOL: 'NGN' 
+        };
+
+        const form = document.getElementById('barberPaymentForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('emailAddress').value;
+            const name = document.getElementById('fullName').value;
+            const baseAmount = document.getElementById('serviceSelect').value;
+            const serviceName = document.getElementById('serviceSelect').options[document.getElementById('serviceSelect').selectedIndex].getAttribute('data-name');
+            
+            // Comprehensive settings verification
+            if (!CONFIG.PAYSTACK_PUBLIC_KEY || CONFIG.PAYSTACK_PUBLIC_KEY.includes('YOUR_')) {
+                alert('Configuration Missing: Replace the placeholder text inside the code with your actual Paystack Public Key.');
+                return;
+            }
+            if (!CONFIG.CAL_BOOKING_LINK || CONFIG.CAL_BOOKING_LINK.includes('YOUR_')) {
+                alert('Configuration Missing: Replace the placeholder text inside the code with your Cal.com Event link.');
+                return;
+            }
+
+            // Convert raw pricing to subunit format (Kobo)
+            const calculatedSubunitAmount = baseAmount * 100;
+
+            // Proper V2 module execution pattern
+            const popup = new Paystack();
+            
+            popup.checkout({
+                key: CONFIG.PAYSTACK_PUBLIC_KEY,
+                email: email,
+                amount: calculatedSubunitAmount,
+                currency: CONFIG.CURRENCY_SYMBOL,
+                ref: 'BCUT-' + Date.now() + '-' + Math.floor(Math.random() * 1000), 
+                
+                metadata: {
+                    custom_fields: [
+                        { display_name: "Customer Name", variable_name: "customer_name", value: name },
+                        { display_name: "Booked Service", variable_name: "booked_service", value: serviceName }
+                    ]
+                },
+
+                onSuccess: function(transaction) {
+                    alert('Payment Received! Loading appointment calendar slot window.');
+                    
+                    Cal("respond", {
+                        action: "open",
+                        options: {
+                            calLink: CONFIG.CAL_BOOKING_LINK,
+                            name: name,
+                            email: email
+                        }
+                    });
+                },
+                onCancel: function() {
+                    alert('Payment transaction cancelled. Slots are not held without confirmation.');
+                },
+                onError: function(error) {
+                    alert('Gateway Connection Error: ' + error.message);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
